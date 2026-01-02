@@ -1,73 +1,107 @@
-**1. Core Features**
+# NULO
 
-- **Dynamically Typed:** Values can change type at runtime. Designed for readability and beginner-friendliness.
-- **Basic Types:**
-  - `int` – 64-bit integer
-  - `float` – double precision
-  - `bool` – boolean (true / false)
-  - `string` – text sequence
-  - `None` – null equivalent
-- **Composite Types:**
-  - `List`: Dynamic array; no manual memory management. Inspired by Python’s list but internally optimized for DSA operations.
-  - `Dictionary`: Key-value storage, JSON-like, supports nested structures.
-- **Variables:**
-  - `Simple assignment`; no type declaration required.
-  - ```text
-        x = 5
-      name = "Nahom"
-      x = "A string" // Allowed: dynamic typing
-    
-      global y // Marks variable as global; accessible across functions
-      ```
-    - Variables can be reassigned freely. Global variables can be referenced before initialization.
-- **Control Flow:**
-  - Conditionals: `if`, `if-else`, `if-elif-else` 
-  - Loops: `while`, `do-while`, `for`, `for-each`, `for-range`
-- **Functions:**
-  - Declared with `def`. Support `return`, `break`, and `continue`.
-  - ```text
-    def add(x, y) {
-        global sum = x + y
-    }
-    print(sum)
-    ```
-  - ```text
-    def foo() {}
-    def foo()
-    {}
-    ```     
-- **Built-ins:**
-  - `print()` – outputs to console 
-  - `length(x)` – returns size of list, dict, or string 
-  - `input()` – reads user input
-- **Error Policy:**
-  - Auto-corrects trivial syntax mistakes (e.g., missing quotes, stray commas, semicolons). 
-  - Displays clear “fixed for you” message showing original and corrected line.
+The language name for me is **NULO**, which means *null* or *void* in Spanish and Portuguese.  
+It represents simplicity, emptiness, and a starting point for creation, fitting for a language meant to be clean, intuitive, and beginner-friendly.
 
 ---
 
-**2. Syntax Style**
+## **1. Core Features**
 
-- Curly braces define scope. 
-- Statements can end with a semicolon or a newline. 
-- Strings support single `'`, double `"`, and backtick **`** quotes. 
-- Whitespace-insensitive (except inside strings).
+- **Dynamically Typed:**  
+  Values can change type at runtime. Designed for readability and beginner-friendliness.
+
+- **Basic Types:**  
+  - `int` – 64-bit integer  
+  - `float` – double precision  
+  - `bool` – boolean (`true` / `false`)  
+  - `string` – text sequence  
+  - `None` – null equivalent  
+
+- **Composite Types:**  
+  - **List:** Dynamic array with automatic memory management. Inspired by Python lists but internally optimized for common data structure operations.  
+  - **Dictionary:** Key-value storage similar to JSON objects, supports nested structures.  
+
+- **Variables:**  
+  - Support simple assignment without type declarations.  
+  - Variables can be reassigned freely.  
+  - Supports `global` for cross-function accessibility and `immutable` for constants.  
+  - Global variables can be referenced before initialization.  
+
+- **Control Flow:**  
+  - Supports `if`, `if-else`, `if-elif-else` conditionals.  
+  - Loop structures include `while`, `do-while`, `for`, `for-each`, and `for-range`.  
+
+- **Functions:**  
+  - Declared using `def`.  
+  - Support `return`, `break`, and `continue`.  
+  - Function definitions can be written in single-line or multi-line form.  
+
+- **Built-ins:**  
+  - `print()` – outputs to console  
+  - `length(x)` – returns size of list, dictionary, or string  
+  - `input()` – reads user input  
+
+- **Error Policy:**  
+  - Automatically corrects trivial syntax mistakes (e.g., missing quotes, extra commas, semicolons).  
+  - Displays a clear “fixed for you” message showing the original and corrected line.  
 
 ---
 
-**3. Data Structures**
+## **2. Syntax Style**
 
-- **Lists:**
-  - Dynamic arrays usable as stacks (push, pop) or queues (enqueue, dequeue). 
-  - Support indexing, slicing, and iteration.
-- **Strings:**
-  - Interpolation: `Hello, ${name}`
-  - Concatenation via `+` or `concat()`
-  - Implicit string conversion when combining types:
-  - ```text
-    "Result: " + 5  // → "Result: 5"
-    ```
-- **Range:**
-  - Implemented like Python’s `range(start, end, step)` for cleaner looping syntax.
-- **Execution Model:**
-  - Interpreted language for fast iteration and learning. Future support for `JIT` compilation.
+- Curly braces define scope.  
+- Statements can end with either a semicolon or a newline.  
+- Strings support single `'`, double `"`, and backtick `` ` `` quotes.  
+- Whitespace is ignored except inside strings.  
+- Triple quotes (`"""` or `'''`) preserve formatting for multiline strings.  
+- Triple backticks (`` ``` ``) collapse multiline strings into a single line, treating newlines as spaces.  
+
+---
+
+## **3. Data Structures**
+
+- **Lists:**  
+  - Dynamic arrays that can function as stacks or queues.  
+  - Support indexing, slicing, and iteration.  
+
+- **Strings:**  
+  - Support variable interpolation using `${}` syntax.  
+  - Support concatenation via `+` or `concat()`.  
+  - Automatically convert non-string types when concatenated with strings.  
+
+- **Range:**  
+  - Provides a sequence of numbers similar to Python’s `range(start, end, step)`.  
+  - Commonly used for iteration in loops.  
+
+- **Execution Model:**  
+  - Interpreted language designed for fast iteration and learning.  
+  - Planned support for optional JIT compilation in future versions.  
+
+---
+
+## **4. Features Wishlist**
+
+| Must Haves | Nice To Haves |
+|-------------|---------------|
+| Variables, Declaration & Assignment | Triple Quotes |
+| Dynamically Typed | Explicitly defining data types |
+| Control Flows (if, elif, else, while, for, break, continue) | Auto-fix code |
+| Functions (`def`) | Optional Semicolons |
+| Built-ins (print, input, length, concat) | Hybrid Comments |
+| Comment Syntax (`//`) | Global variable access across scopes |
+| Error Handling | Inline Docs / Docstrings |
+| Standard Execution Model (Tree-walk) | Built-in list/dict helpers (append, push, pop, etc.) |
+| Lists, Dictionaries (Maps), Range (For-each), String Interpolation (`${var}`) | Jupyter-style notebook mode |
+| Lexer → Parser → Tree-walk Interpreter | Pretty printed runtime errors |
+| Basic REPL (Read-Eval-Print Loop) | Syntax highlighting in REPL or terminal |
+
+---
+
+## ✅ **Week 1–2: Language Foundations**
+
+- [x] Decide core features: variables, types, control flow, functions.  
+- [x] Decide syntax style: braces for scope, flexible line endings.  
+- [x] Decide data structures to support initially: list, dict, string, int, float.  
+- [x] Make a feature wishlist: must-have vs nice-to-have.  
+
+---

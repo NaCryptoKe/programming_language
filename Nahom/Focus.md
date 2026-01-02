@@ -1,12 +1,12 @@
 # 1. Week 1–2: Language Foundations
 
-- [ ] Decide core features: variables, types, control flow, functions.
+- [x] Decide core features: variables, types, control flow, functions.
 
-- [ ] Decide syntax style: Pythonic indentation? braces? hybrid?
+- [x] Decide syntax style: Pythonic indentation? braces? hybrid?
 
-- [ ] Decide data structures to support initially: list, dict, string, int, float.
+- [x] Decide data structures to support initially: list, dict, string, int, float.
 
-- [ ] Make a feature wishlist: must-have vs nice-to-have.
+- [x] Make a feature wishlist: must-have vs nice-to-have.
 
 # 2. Week 3–4: Grammar & Semantics
 
