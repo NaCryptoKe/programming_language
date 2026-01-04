@@ -15,7 +15,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
   - `float` – double precision  
   - `bool` – boolean (`true` / `false`)  
   - `string` – text sequence  
-  - `None` – null equivalent  
+  - `Nulo` – null equivalent  
 
 - **Composite Types:**  
   - **List:** Dynamic array with automatic memory management. Inspired by Python lists but internally optimized for common data structure operations.  
@@ -24,8 +24,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 - **Variables:**  
   - Support simple assignment without type declarations.  
   - Variables can be reassigned freely.  
-  - Supports `global` for cross-function accessibility and `immutable` for constants.  
-  - Global variables can be referenced before initialization.  
+  - Supports `global` for cross-function accessibility and `immut` for constants.  
 
 - **Control Flow:**  
   - Supports `if`, `if-else`, `if-elif-else` conditionals.  
@@ -50,11 +49,11 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 ## **2. Syntax Style**
 
 - Curly braces define scope.  
-- Statements can end with either a semicolon or a newline.  
+- Statements can end with either a semicolon.  
 - Strings support single `'`, double `"`, and backtick `` ` `` quotes.  
 - Whitespace is ignored except inside strings.  
 - Triple quotes (`"""` or `'''`) preserve formatting for multiline strings.  
-- Triple backticks (`` ``` ``) collapse multiline strings into a single line, treating newlines as spaces.  
+- Triple backticks (```) collapse multiline strings into a single line, treating newlines as spaces.  
 
 ---
 
@@ -94,14 +93,5 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 | Lists, Dictionaries (Maps), Range (For-each), String Interpolation (`${var}`) | Jupyter-style notebook mode |
 | Lexer → Parser → Tree-walk Interpreter | Pretty printed runtime errors |
 | Basic REPL (Read-Eval-Print Loop) | Syntax highlighting in REPL or terminal |
-
----
-
-## ✅ **Week 1–2: Language Foundations**
-
-- [x] Decide core features: variables, types, control flow, functions.  
-- [x] Decide syntax style: braces for scope, flexible line endings.  
-- [x] Decide data structures to support initially: list, dict, string, int, float.  
-- [x] Make a feature wishlist: must-have vs nice-to-have.  
 
 ---
