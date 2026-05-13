@@ -9,16 +9,18 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 
 - **Dynamically Typed:**  
   Values can change type at runtime. Designed for readability and beginner-friendliness.
+  Example: x = 10 rather than being int x = 10
 
 - **Basic Types:**  
-  - `int` – 64-bit integer  
-  - `float` – double precision  
-  - `bool` – boolean (`true` / `false`)  
-  - `string` – text sequence  
-  - `Nulo` – null equivalent  
+  - `int` - 64-bit integer  (*can reach up to -2^63 to 2^63 - 1*)
+  - `float` - double precision  
+  - `bool` - boolean (`true` / `false`)  
+  - `string` - text sequence  
+  - `NULO` - null equivalent  
 
 - **Composite Types:**  
-  - **List:** Dynamic array with automatic memory management. Inspired by Python lists but internally optimized for common data structure operations.  
+  - **List:** Dynamic array with automatic memory management. 
+        Inspired by Python lists but internally optimized for common data structure operations.  
   - **Dictionary:** Key-value storage similar to JSON objects, supports nested structures.  
 
 - **Variables:**  
@@ -31,7 +33,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
   - Loop structures include `while`, `do-while`, `for`, `for-each`, and `for-range`.  
 
 - **Functions:**  
-  - Declared using `def`.  
+  - Declared using `func`.  
   - Support `return`, `break`, and `continue`.  
   - Function definitions can be written in single-line or multi-line form.  
 
@@ -40,7 +42,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
   - `length(x)` – returns size of list, dictionary, or string  
   - `input()` – reads user input  
 
-- **Error Policy:**  
+- **Error Policy:**  *This is an ambitious task, and will be implemented after the core things are finished*
   - Automatically corrects trivial syntax mistakes (e.g., missing quotes, extra commas, semicolons).  
   - Displays a clear “fixed for you” message showing the original and corrected line.  
 
@@ -49,10 +51,10 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 ## **2. Syntax Style**
 
 - Curly braces define scope.  
-- Statements can end with either a semicolon.  
+- Statements can ends with a semicolon.  
 - Strings support single `'`, double `"`, and backtick `` ` `` quotes.  
 - Whitespace is ignored except inside strings.  
-- Triple quotes (`"""` or `'''`) preserve formatting for multiline strings.  
+- Triple quotes (`"""` or `'''`) preserve formatting for multiline strings.  *will be implemented in v2.0*
 - Triple backticks (```) collapse multiline strings into a single line, treating newlines as spaces.  
 
 ---
@@ -74,7 +76,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 
 - **Execution Model:**  
   - Interpreted language designed for fast iteration and learning.  
-  - Planned support for optional JIT compilation in future versions.  
+  - Planned support for optional JIT compilation in future versions.  *For v2.0*
 
 ---
 
@@ -85,7 +87,7 @@ It represents simplicity, emptiness, and a starting point for creation, fitting 
 | Variables, Declaration & Assignment | Triple Quotes |
 | Dynamically Typed | Explicitly defining data types |
 | Control Flows (if, elif, else, while, for, break, continue) | Auto-fix code |
-| Functions (`def`) | Optional Semicolons |
+| Functions (`func`) | Optional Semicolons |
 | Built-ins (print, input, length, concat) | Hybrid Comments |
 | Comment Syntax (`//`) | Global variable access across scopes |
 | Error Handling | Inline Docs / Docstrings |
