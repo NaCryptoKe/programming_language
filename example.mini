@@ -1,0 +1,4 @@
+set health = 100
+set damage = 25
+set final_health = health - damage
+print final_health
