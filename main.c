@@ -1,93 +1,42 @@
 /*
- * MiniLang lexer. Keywords: set, print.
- * Identifiers match [a-zA-Z_][a-zA-Z0-9_]*.
- * Expressions are numeric literals or tokens containing an arithmetic
- * operator.
- */
-#include <ctype.h>
+ * v0.0.1 Sunday, November 01 2026
+ * For now, the tokenizer should only parse the return value.
+ * `int main() { return` (3 + 4) * 2 - 1 `;`} // should output 13
+ *
+ * What gets built:
+ * 1. Tokenizer: for numbers and punctuation (+ - * / ( ) ; )
+ * 2. Recursive-descent parser with correct precedence. The grammar is only three levels:
+ *      expr    = mul ("+" mul | "-" mul)*
+ *      mul     = unary("*" unary | "/" unary)*
+ *      unary   = ("-" | "+")? primary
+ *      primary = num | "(" expr ")"
+*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-#include "queue.h"
-
-#define MAX 100
-
-static const char *classify(const char *token)
-{
-  if (strcmp(token, "set") == 0 || strcmp(token, "print") == 0)
-    return "keyword";
-
-  if (isdigit((unsigned char)token[0]) || strchr(token, '+') != NULL ||
-      strchr(token, '-') != NULL || strchr(token, '*') != NULL ||
-      strchr(token, '/') != NULL)
-    return "expression";
-
-  if (isalpha((unsigned char)token[0]) || token[0] == '_')
-    return "identifier";
-
-  return "expression";
-}
+#include "stack.h"
 
 int main(int argc, char *argv[])
 {
-  Queue queue = {NULL, NULL};
-  char buffer[MAX];
-  size_t idx = 0;
-  int ch;
+    FILE *file = fopen(argv[1], "r");
+    Stack s;
+    initStack(&s);
 
-  if (argc < 2)
-  {
-    fprintf(stderr, "Error: Missing filename.\nUsage: %s <filename>\n", argv[0]);
-    return 1;
-  }
-
-  FILE *file_ptr = fopen(argv[1], "r");
-  if (file_ptr == NULL)
-  {
-    fprintf(stderr, "Error: Could not open file '%s'.\n", argv[1]);
-    return 1;
-  }
-
-  /* Step 1: split the input into whitespace-delimited tokens. */
-  while ((ch = fgetc(file_ptr)) != EOF)
-  {
-    if (isspace((unsigned char)ch))
+    if (file == NULL)
     {
-      if (idx > 0)
-      {
-        buffer[idx] = '\0';
-        enqueue(&queue, buffer);
-        idx = 0;
-      }
+        printf("Error: Could not open the file.\n");
+        return 1;
     }
-    else if (idx < sizeof(buffer) - 1)
-    {
-      buffer[idx++] = (char)ch;
-    }
-    else
-    {
-      buffer[idx] = '\0';
-      enqueue(&queue, buffer);
-      idx = 0;
-      buffer[idx++] = (char)ch;
-    }
-  }
-  if (idx > 0)
-  {
-    buffer[idx] = '\0';
-    enqueue(&queue, buffer);
-  }
-  fclose(file_ptr);
 
-  /* Step 2: dequeue every token in input order and report its kind. */
-  char *token;
-  while ((token = dequeue(&queue)) != NULL)
-  {
-    printf("%s: %s\n", classify(token), token);
-    free(token);
-  }
+    printf("File opened successfully!\n");
 
-  freeQueue(&queue);
-  return 0;
+    int ch;
+
+    while ((ch = fgetc(file)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(file);
+
+    return EXIT_SUCCESS;
 }
